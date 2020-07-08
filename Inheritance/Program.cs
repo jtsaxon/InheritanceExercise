@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Inheritance
 {
@@ -6,34 +7,55 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
-            // TODO Be sure to follow best practice when creating your classes
+            var bird1 = new Bird();
+            bird1.Species = "Cardinal";
+            bird1.FeatherColor = "Red";
+            bird1.HasWings = true;
+            bird1.HasBeak = true;
 
-            // Create a class Animal
-            // give this class 4 members that all Animals have in common
+            var bird2 = new Bird()
+            {
+                Species = "Oriole",
+                FeatherColor = "Orange",
+                HasWings = true,
+                HasBeak = true
+            };
 
+            var reptile1 = new Reptile();
+            reptile1.IsColdBlooded = true;
+            reptile1.HasScales = true;
+            reptile1.ScaleColor = "Green";
+            reptile1.TailLength = 10.7;
 
-            // Create a class Bird
-            // give this class 4 members that are specific to Bird
-            // Set this class to inherit from your Animal Class
+            var reptile2 = new Reptile()
+            {
+                IsColdBlooded = true,
+                HasScales = true,
+                ScaleColor = "Black",
+                TailLength = 6.9
+            };
 
-            // Create a class Reptile
-            // give this class 4 members that are specific to Reptile
-            // Set this class to inherit from your Animal Class
+            var myAnimals = new Animal[] { bird1, bird2, reptile1, reptile2 };
 
+            foreach (var animal in myAnimals)
+            {
+                Console.WriteLine($"The animal is {animal.Age} years old.");
+                Console.WriteLine($"It has {animal.LegCount} legs.");
+                Console.WriteLine($"Has eukaryotic cells? {animal.EukaryoticCells}");
+                Console.WriteLine($"The animals habitat is... {animal.LandSeaAir}");
+                Console.WriteLine($"");
+            }
 
+            Console.WriteLine($"Is the Iguana cold blooded? {reptile1.IsColdBlooded}");
+            Console.WriteLine($"What color is the Iguana? {reptile1.ScaleColor}");
 
+            Console.WriteLine($"The snake is {reptile2.ScaleColor}");
+            Console.WriteLine($"Does the snake have scales? {reptile2.HasScales}");
 
-            /*Create an object of your Bird class
-             *  give values to your members using the object of your Bird class
-             *  
-             * Creatively display the class member values 
-             */
+            Console.WriteLine($"The {bird1.FeatherColor} {bird1.Species} lives in the {bird2.LandSeaAir}");
 
-            /*Create an object of your Reptile class
-             *  give values to your members using the object of your Bird class
-             *  
-             * Creatively display the class member values 
-             */
+            Console.WriteLine($"The {bird2.FeatherColor} {bird2.Species} has {bird2.LegCount} legs.");
+
         }
     }
 }
